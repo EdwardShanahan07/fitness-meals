@@ -5,6 +5,9 @@
 - [UX](#ux)
   - [Project Description](#project-description)
   - [Project Goals](#project-goals)
+- [Tests](#tests)
+  - [Bugs](#bugs)
+    - [Solved Bugs](#solved-bugs)
 - [Deployment](#deployment)
   - [Database](#database)
   - [Cloudinary](#cloudinary)
@@ -25,19 +28,29 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 4. Implement user registration and login so authentic users can create and share their recipes and also like and comment on other member's recipes
 5. Deploy the application making sure the site has excellent performance and accessibility
 
+## Tests 
+
+### Bugs 
+
+#### Solved Bugs 
+| Bug  |  Error Message | Solution |   
+|---|---|---|
+|  When deploying the project to Heroku, I got an error when viewing the uploaded site  | Disallowed Host  | In settings.py I changed the value of ALLOWED_HOSTS to my right Heroku project URL.
+
+
 ## Deployment
 
 ### Database
 
 1. Register or log in to [ElephantSQL](https://www.elephantsql.com/)
 2. At the home page click the "Create New Instance" button
-3. Name your database (fitnessmeals)
-4. Select free plan "Tiny Turtle"
-5. Click "Select Region" Button
-6. Select your "data center"
+3. Name your database (fitness_meals)
+4. Select the free plan "Tiny Turtle"
+5. Click the "Select Region" Button
+6. Select your "data centre"
 7. Click the "Review" Button
 8. Click the "Create Instance" button
-9. Click into the new instance, and copy the database url (You need this url for Heroku Variable later)
+9. Click into the new instance, and copy the database URL (You need this URL for Heroku Variable later)
 
 ### Cloudinary
 
@@ -52,7 +65,7 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 3. Name your app name
 4. Select your region
 5. Open the settings tab, and click the "Reval Config Vars"
-6. Add DATABASE_URL to Config Vars and use your datbase url as the value
+6. Add DATABASE_URL to Config Vars and use your database url as the value
 7. Add SECRET_KEY to Config Vars and use your secret key
 8. Add CLOUDINARY_URL to Config Vars and use your Cloudinary API Environment Variable
 9. Select the Deploy tab, choose GitHub as your deployment method
@@ -61,7 +74,7 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 
 ## IDE
 
-1. Create env.py file
+1. Create an env.py file
 2. Import the os module, add DATABASE_URL and paste the database key
 
 ```
@@ -70,7 +83,7 @@ import os
 os.es.environ["DATABASE_URL"] = "DATABASE URL"
 ```
 
-3. Add your Django secret key to env.py file, cut the SECRET_KEY from
+3. Add your Django secret key to the env.py file, and cut the SECRET_KEY from
    the settings.py file (If the SECRET_KEY doesn't exist create your own)
 
 ```
