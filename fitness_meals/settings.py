@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'fitness-meals-a8fa33ae6819.herokuapp.com/',
+    'fitness-meals-a8fa33ae6819.herokuapp.com',
     '8000-edwardshanahan07-fitness-0v0uqk7g0r.us2.codeanyapp.com'
 ]
 
