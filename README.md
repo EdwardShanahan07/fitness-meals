@@ -5,6 +5,7 @@
 - [UX](#ux)
   - [Project Description](#project-description)
   - [Project Goals](#project-goals)
+  - [User Stories](#user-stories)
 - [Tests](#tests)
   - [Bugs](#bugs)
     - [Solved Bugs](#solved-bugs)
@@ -27,6 +28,12 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 3. View a list of member's shared recipes on a pagination pages
 4. Implement user registration and login so authentic users can create and share their recipes and also like and comment on other member's recipes
 5. Deploy the application making sure the site has excellent performance and accessibility
+
+### User Stories 
+- As a User, I can view the home page so that I can learn about the application
+- As a User, I can register an account so that I can create and share my recipes
+- As a User, I can log in so that I can use the application's full functionality
+- As a user, I can log out so that I can keep my account secure
 
 ## Tests 
 
