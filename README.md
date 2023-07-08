@@ -6,6 +6,9 @@
   - [Project Description](#project-description)
   - [Project Goals](#project-goals)
   - [User Stories](#user-stories)
+  - [Design](#design)
+    - [Wireframes](#wireframes)
+       - [Home Page](#home-page)
 - [Tests](#tests)
   - [Bugs](#bugs)
     - [Solved Bugs](#solved-bugs)
@@ -34,6 +37,13 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 - As a User, I can register an account so that I can create and share my recipes
 - As a User, I can log in so that I can use the application's full functionality
 - As a user, I can log out so that I can keep my account secure
+
+## Design 
+
+### Wireframes
+
+#### Home Page
+![Home Page Wireframe](./readme-assets/imgs/Home.jpg)
 
 ## Tests 
 
