@@ -37,6 +37,13 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 - As a User, I can register an account so that I can create and share my recipes
 - As a User, I can log in so that I can use the application's full functionality
 - As a user, I can log out so that I can keep my account secure
+- As a User, I can create a new recipe so that I can share it with others
+- As a User, I can edit recipes so that I can change recipe details
+- As a User, I can delete my recipes so that I can remove the recipe from the application
+- As a User, I can view recipes so that I can view members' recipes
+- As a User, I can view recipes so that I can see the recipe's full details
+- As a User, I can comment on members' recipes so that I ask questions about the recipe
+- As a User, I can like or unlike recipes so that I can support the other members
 
 ## Design 
 
