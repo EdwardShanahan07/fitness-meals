@@ -8,7 +8,7 @@
   - [User Stories](#user-stories)
   - [Design](#design)
     - [Wireframes](#wireframes)
-       - [Home Page](#home-page)
+      - [Home Page](#home-page)
 - [Tests](#tests)
   - [Bugs](#bugs)
     - [Solved Bugs](#solved-bugs)
@@ -32,7 +32,8 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 4. Implement user registration and login so authentic users can create and share their recipes and also like and comment on other member's recipes
 5. Deploy the application making sure the site has excellent performance and accessibility
 
-### User Stories 
+### User Stories
+
 - As a User, I can view the home page so that I can learn about the application
 - As a User, I can register an account so that I can create and share my recipes
 - As a User, I can log in so that I can use the application's full functionality
@@ -45,22 +46,27 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 - As a User, I can comment on members' recipes so that I ask questions about the recipe
 - As a User, I can like or unlike recipes so that I can support the other members
 
-## Design 
+## Design
+
+### ERD Database
+
+![ERD Database](./readme-assets/imgs/erd-database.jpeg)
 
 ### Wireframes
 
 #### Home Page
+
 ![Home Page Wireframe](./readme-assets/imgs/Home.jpg)
 
-## Tests 
+## Tests
 
-### Bugs 
+### Bugs
 
-#### Solved Bugs 
-| Bug  |  Error Message | Solution |   
-|---|---|---|
-|  When deploying the project to Heroku, I got an error when viewing the uploaded site  | Disallowed Host  | In settings.py I changed the value of ALLOWED_HOSTS to my right Heroku project URL.
+#### Solved Bugs
 
+| Bug                                                                                 | Error Message   | Solution                                                                            |
+| ----------------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------- |
+| When deploying the project to Heroku, I got an error when viewing the uploaded site | Disallowed Host | In settings.py I changed the value of ALLOWED_HOSTS to my right Heroku project URL. |
 
 ## Deployment
 
