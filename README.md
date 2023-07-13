@@ -7,8 +7,8 @@
   - [Project Goals](#project-goals)
   - [User Stories](#user-stories)
   - [Design](#design)
+    -  [ERD Database](#erd-database)
     - [Wireframes](#wireframes)
-      - [Home Page](#home-page)
 - [Tests](#tests)
   - [Bugs](#bugs)
     - [Solved Bugs](#solved-bugs)
@@ -50,13 +50,51 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 
 ### ERD Database
 
-![ERD Database](./readme-assets/imgs/erd-database.jpeg)
+![](./readme-assets/imgs/erd-database.jpeg)
 
 ### Wireframes
 
-#### Home Page
+<details>
+  <summary>Home Page</summary>
+  
+  ![](./readme-assets/imgs/home.jpg)
+</details>
 
-![Home Page Wireframe](./readme-assets/imgs/Home.jpg)
+<details>
+  <summary>Recipes Page</summary>
+  
+  ![](./readme-assets/imgs/recipes.jpg)
+</details>
+
+<details>
+  <summary>Recipe Detail Page</summary>
+  
+  ![](./readme-assets/imgs/recipe-details.jpg)
+</details>
+
+<details>
+  <summary>Sign Up Page</summary>
+  
+  ![](./readme-assets/imgs/register.jpg)
+</details>
+
+<details>
+  <summary>Login Page</summary>
+  
+  ![](./readme-assets/imgs/login.jpg)
+</details>
+
+<details>
+  <summary>Create Recipe Page</summary>
+  
+  ![](./readme-assets/imgs/create-recipe.jpg)
+</details>
+
+<details>
+  <summary>Edit Recipe Page</summary>
+  
+  ![](./readme-assets/imgs/edit-recipe.jpg)
+</details>
 
 ## Tests
 
