@@ -1,3 +1,14 @@
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url(https://res.cloudinary.com/dqriyfsvh/image/upload/v1689375950/hero-bg_tgzoyy.jpg) no-repeat center/cover;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
 .social-links a {
     text-decoration: none;
     font-size: 20px;
