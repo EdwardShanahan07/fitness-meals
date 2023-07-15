@@ -8,7 +8,6 @@
     justify-content: center;
 }
 
-
 .social-links a {
     text-decoration: none;
     font-size: 20px;
@@ -22,4 +21,11 @@
 footer .navbar-brand {
     display: inline-block;
     font-size: 20px;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
