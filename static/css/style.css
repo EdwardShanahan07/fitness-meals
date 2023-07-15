@@ -29,3 +29,7 @@ footer .navbar-brand {
     justify-content: center;
     align-items: flex-start;
 }
+
+.card-img-top {
+    height: 342px !important;
+}
