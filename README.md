@@ -7,7 +7,7 @@
   - [Project Goals](#project-goals)
   - [User Stories](#user-stories)
   - [Design](#design)
-    -  [ERD Database](#erd-database)
+    - [ERD Database](#erd-database)
     - [Wireframes](#wireframes)
 - [Tests](#tests)
   - [Bugs](#bugs)
@@ -17,6 +17,10 @@
   - [Cloudinary](#cloudinary)
   - [Heroku](#heroku)
   - [IDE](#ide)
+- [Credits](#credits)
+  - [Code Used](#code-used)
+  - [Content](#content)
+  - [Media](#media)
 
 ## UX
 
@@ -163,3 +167,18 @@ os.es.environ["SECRET_KEY"] = "SECRET KEY"
 ```
 os.es.environ["CLOUDINARY_URL"] = "CLODINARY API KEY"
 ```
+
+## Credits
+
+### Code Used
+
+- Project code is based on Code Institue Walkthrough project, "I Think Therefor I Blog".
+  [Walkthrough Project](https://github.com/Code-Institute-Solutions/Django3blog/tree/master/12_final_deployment)
+
+### Content
+
+- Recipes content is from [MyProtein](https://www.myprotein.ie/blog/recipe/healthy-breakfast-burrito/)
+
+### Media
+
+- Images gathered from [Pexels](https://www.pexels.com/)

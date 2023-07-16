@@ -44,7 +44,7 @@
     </div>
 </div>
 
-<div class="details text-center flex-wrap p-5 bg-dark text-light d-flex justify-content-around align-items-center">
+<div class="details text-center flex-wrap p-5 bg-dark text-light d-flex justify-content-around align-items-center mb-5">
     <div class="details-group">
         <i class="fa-solid fa-list"></i>
         <p class="text-center">Category</p>
@@ -64,6 +64,25 @@
         <i class="fa-solid fa-hourglass"></i>
         <p class="text-center">Servings</p>
         <p class="">{{ recipe.servings }} servings</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h2 class="heading-2">Ingredients:</h2>
+        <ul>
+            {% for ingredient in ingredients_list %}
+            <li>{{ ingredient }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-md-6">
+        <h2 class="heading-2">Method:</h2>
+        <ol>
+            {% for method in methods_list %}
+            <li>{{ method }}</li>
+            {% endfor %}
+        </ol>
     </div>
 </div>
 {% endblock content %}

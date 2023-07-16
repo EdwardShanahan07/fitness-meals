@@ -5,7 +5,7 @@
 
     <p class="lead text-break">Create / Share / Inspire</p>
 
-    <a href="#" class="btn btn-primary inline-block">View Recipes</a>
+    <a href="{% url 'recipes_list' %}" class="btn btn-primary inline-block">View Recipes</a>
 </section>
 
 <section class="about row">
@@ -46,7 +46,7 @@
 
                     <h5 class=" card-title">{{ recipe.title }}</h5>
                     <p class="text-secondary">Author: {{ recipe.author }}</p>
-                    <a href="#" class="btn btn-primary">View Recipe</a>
+                    <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-primary">View Recipe</a>
                 </div>
             </div>
         </div>

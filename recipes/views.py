@@ -46,6 +46,9 @@ class RecipeDetail(View):
         comments = recipe.comments.filter(approved=True).order_by('created_on')
         liked = False
 
+        ingredients_list = recipe.ingredients.split("\n")
+        methods_list = recipe.method.split("\n")
+
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
 
@@ -54,6 +57,8 @@ class RecipeDetail(View):
             "recipe_detail.html",
             {
                 "recipe": recipe,
+                "ingredients_list": ingredients_list,
+                "methods_list": methods_list,
                 "comments": comments,
                 "liked": liked
             }
