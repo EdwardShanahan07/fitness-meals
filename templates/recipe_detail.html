@@ -1,4 +1,69 @@
 {% extends 'base.html' %}
 {% block content %}
-{{recipe.title}}
+<div class="row mt-5">
+    <div class="col-md-6">
+        <div class="info text-secondary d-flex justify-content-between flex-wrap">
+            <p>
+                <i class="fa-regular fa-user"></i>
+                {{recipe.author}}
+            </p>
+
+            <span>Last Updated: {{recipe.updated_on}}</span>
+        </div>
+
+        <h1 class="heading-1">{{recipe.title}}</h1>
+
+        <p>{{ recipe.description }}</p>
+
+        <div>
+            <p class="fw-bold">Nutriotion facts per servings:</p>
+
+            <ul class="list-inline d-flex">
+                <li class="list-inline-item">
+                    <p class="">Calories</p>
+                    <p class="fw-bold">{{ recipe.calories }}</p>
+                </li>
+                <li class="list-inline-item">
+                    <p class="">Protein</p>
+                    <p class="fw-bold">{{ recipe.protein }}g</p>
+                </li>
+                <li class="list-inline-item">
+                    <p class="">Carbs</p>
+                    <p class="fw-bold">{{ recipe.carbs }}g</p>
+                </li>
+                <li class="list-inline-item">
+                    <p class="">Carbs</p>
+                    <p class="fw-bold">{{ recipe.fats }}g</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <img class="img-fluid" src="{{recipe.image.url}}" alt="">
+    </div>
+</div>
+
+<div class="details text-center flex-wrap p-5 bg-dark text-light d-flex justify-content-around align-items-center">
+    <div class="details-group">
+        <i class="fa-solid fa-list"></i>
+        <p class="text-center">Category</p>
+        <p class="">{{ recipe.category }}</p>
+    </div>
+    <div class="details-group">
+        <i class="fa-regular fa-clock"></i>
+        <p class="text-center">Prep Time</p>
+        <p class="">{{ recipe.prep_time }} minutes</p>
+    </div>
+    <div class="details-group">
+        <i class="fa-regular fa-clock"></i>
+        <p class="text-center">Cook Time</p>
+        <p class="">{{ recipe.cook_time }} minutes</p>
+    </div>
+    <div class="details-group">
+        <i class="fa-solid fa-hourglass"></i>
+        <p class="text-center">Servings</p>
+        <p class="">{{ recipe.servings }} servings</p>
+    </div>
+</div>
 {% endblock content %}
