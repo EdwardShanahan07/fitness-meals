@@ -85,4 +85,37 @@
         </ol>
     </div>
 </div>
+
+<div class="row pb-2 border-bottom mb-3">
+    <div class="col-1">
+        <span class="text-secondary">
+            <i class="fa-regular fa-heart"></i>
+            {{recipe.total_likes}}
+        </span>
+    </div>
+    <div class="col-1">
+        {% with comments.count as total_comments %}
+        <span class="text-secondary">
+            <i class="fa-regular fa-comment"></i>
+            {{ total_comments }}</span>
+        {% endwith %}
+    </div>
+</div>
+
+<div class="row mb-5">
+    <div class="col-md-6">
+        <h2 class="heading-2">Comments:</h2>
+
+        <ul class="list-group mt-3">
+            {% for comment in comments %}
+            <li class="list-group-item">
+                <span class="">{{comment.name}}</span>
+                <span class="text-secondary">{{comment.created_on}}</span>
+                <p>{{comment.body}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</div>
 {% endblock content %}
