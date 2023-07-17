@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Recipe
+from .forms import CommentForm
 
 
 class Index(generic.ListView):
@@ -60,6 +61,7 @@ class RecipeDetail(View):
                 "ingredients_list": ingredients_list,
                 "methods_list": methods_list,
                 "comments": comments,
-                "liked": liked
+                "liked": liked,
+                "comment_form": CommentForm()
             }
         )
