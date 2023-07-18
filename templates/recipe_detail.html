@@ -89,10 +89,37 @@
 
 <div class="row pb-2 border-bottom mb-3">
   <div class="col-1">
-    <span class="text-secondary">
-      <i class="fa-regular fa-heart"></i>
-      {{recipe.total_likes}}
-    </span>
+    {% if user.is_authenticated %}
+    <form
+      class="d-inline"
+      action="{% url 'recipe_like' recipe.slug %}"
+      method="POST"
+    >
+      {% csrf_token %} {% if liked %}
+      <button
+        class="btn"
+        style="color: red"
+        type="submit"
+        name="recipelike_id"
+        value="{{recipe.slug}}"
+      >
+        <i class="fa-solid fa-heart"></i>
+      </button>
+      {% else %}
+      <button
+        class="btn"
+        type="submit"
+        name="recipelike_id"
+        value="{{recipe.slug}}"
+      >
+        <i class="fa-regular fa-heart"></i>
+      </button>
+      {% endif %}
+    </form>
+    {% else %}
+    <i class="fa-regular fa-heart"></i>
+    {% endif%}
+    <span class="text-secondary"> {{recipe.total_likes}} </span>
   </div>
   <div class="col-1">
     {% with comments.count as total_comments %}
