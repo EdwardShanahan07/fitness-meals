@@ -1,137 +1,139 @@
-{% extends 'base.html' %}
-{% load crispy_forms_tags %}
-{% block content %}
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
 <div class="row mt-5">
-    <div class="col-md-6">
-        <div class="info text-secondary d-flex justify-content-between flex-wrap">
-            <p>
-                <i class="fa-regular fa-user"></i>
-                {{recipe.author}}
-            </p>
+  <div class="col-md-6">
+    <div class="info text-secondary d-flex justify-content-between flex-wrap">
+      <p>
+        <i class="fa-regular fa-user"></i>
+        {{recipe.author}}
+      </p>
 
-            <span>Last Updated: {{recipe.updated_on}}</span>
-        </div>
-
-        <h1 class="heading-1">{{recipe.title}}</h1>
-
-        <p>{{ recipe.description }}</p>
-
-        <div>
-            <p class="fw-bold">Nutriotion facts per servings:</p>
-
-            <ul class="list-inline d-flex">
-                <li class="list-inline-item">
-                    <p class="">Calories</p>
-                    <p class="fw-bold">{{ recipe.calories }}</p>
-                </li>
-                <li class="list-inline-item">
-                    <p class="">Protein</p>
-                    <p class="fw-bold">{{ recipe.protein }}g</p>
-                </li>
-                <li class="list-inline-item">
-                    <p class="">Carbs</p>
-                    <p class="fw-bold">{{ recipe.carbs }}g</p>
-                </li>
-                <li class="list-inline-item">
-                    <p class="">Carbs</p>
-                    <p class="fw-bold">{{ recipe.fats }}g</p>
-                </li>
-            </ul>
-        </div>
+      <span>Last Updated: {{recipe.updated_on}}</span>
     </div>
 
-    <div class="col-md-6">
-        <img class="img-fluid" src="{{recipe.image.url}}" alt="">
+    <h1 class="heading-1">{{recipe.title}}</h1>
+
+    <p>{{ recipe.description }}</p>
+
+    <div>
+      <p class="fw-bold">Nutriotion facts per servings:</p>
+
+      <ul class="list-inline d-flex">
+        <li class="list-inline-item">
+          <p class="">Calories</p>
+          <p class="fw-bold">{{ recipe.calories }}</p>
+        </li>
+        <li class="list-inline-item">
+          <p class="">Protein</p>
+          <p class="fw-bold">{{ recipe.protein }}g</p>
+        </li>
+        <li class="list-inline-item">
+          <p class="">Carbs</p>
+          <p class="fw-bold">{{ recipe.carbs }}g</p>
+        </li>
+        <li class="list-inline-item">
+          <p class="">Carbs</p>
+          <p class="fw-bold">{{ recipe.fats }}g</p>
+        </li>
+      </ul>
     </div>
+  </div>
+
+  <div class="col-md-6">
+    <img class="img-fluid" src="{{recipe.image.url}}" alt="" />
+  </div>
 </div>
 
-<div class="details text-center flex-wrap p-5 bg-dark text-light d-flex justify-content-around align-items-center mb-5">
-    <div class="details-group">
-        <i class="fa-solid fa-list"></i>
-        <p class="text-center">Category</p>
-        <p class="">{{ recipe.category }}</p>
-    </div>
-    <div class="details-group">
-        <i class="fa-regular fa-clock"></i>
-        <p class="text-center">Prep Time</p>
-        <p class="">{{ recipe.prep_time }} minutes</p>
-    </div>
-    <div class="details-group">
-        <i class="fa-regular fa-clock"></i>
-        <p class="text-center">Cook Time</p>
-        <p class="">{{ recipe.cook_time }} minutes</p>
-    </div>
-    <div class="details-group">
-        <i class="fa-solid fa-hourglass"></i>
-        <p class="text-center">Servings</p>
-        <p class="">{{ recipe.servings }} servings</p>
-    </div>
+<div
+  class="details text-center flex-wrap p-5 bg-dark text-light d-flex justify-content-around align-items-center mb-5"
+>
+  <div class="details-group">
+    <i class="fa-solid fa-list"></i>
+    <p class="text-center">Category</p>
+    <p class="">{{ recipe.category }}</p>
+  </div>
+  <div class="details-group">
+    <i class="fa-regular fa-clock"></i>
+    <p class="text-center">Prep Time</p>
+    <p class="">{{ recipe.prep_time }} minutes</p>
+  </div>
+  <div class="details-group">
+    <i class="fa-regular fa-clock"></i>
+    <p class="text-center">Cook Time</p>
+    <p class="">{{ recipe.cook_time }} minutes</p>
+  </div>
+  <div class="details-group">
+    <i class="fa-solid fa-hourglass"></i>
+    <p class="text-center">Servings</p>
+    <p class="">{{ recipe.servings }} servings</p>
+  </div>
 </div>
 <div class="row">
-    <div class="col-md-6">
-        <h2 class="heading-2">Ingredients:</h2>
-        <ul>
-            {% for ingredient in ingredients_list %}
-            <li>{{ ingredient }}</li>
-            {% endfor %}
-        </ul>
-    </div>
+  <div class="col-md-6">
+    <h2 class="heading-2">Ingredients:</h2>
+    <ul>
+      {% for ingredient in ingredients_list %}
+      <li>{{ ingredient }}</li>
+      {% endfor %}
+    </ul>
+  </div>
 
-    <div class="col-md-6">
-        <h2 class="heading-2">Method:</h2>
-        <ol>
-            {% for method in methods_list %}
-            <li>{{ method }}</li>
-            {% endfor %}
-        </ol>
-    </div>
+  <div class="col-md-6">
+    <h2 class="heading-2">Method:</h2>
+    <ol>
+      {% for method in methods_list %}
+      <li>{{ method }}</li>
+      {% endfor %}
+    </ol>
+  </div>
 </div>
 
 <div class="row pb-2 border-bottom mb-3">
-    <div class="col-1">
-        <span class="text-secondary">
-            <i class="fa-regular fa-heart"></i>
-            {{recipe.total_likes}}
-        </span>
-    </div>
-    <div class="col-1">
-        {% with comments.count as total_comments %}
-        <span class="text-secondary">
-            <i class="fa-regular fa-comment"></i>
-            {{ total_comments }}</span>
-        {% endwith %}
-    </div>
+  <div class="col-1">
+    <span class="text-secondary">
+      <i class="fa-regular fa-heart"></i>
+      {{recipe.total_likes}}
+    </span>
+  </div>
+  <div class="col-1">
+    {% with comments.count as total_comments %}
+    <span class="text-secondary">
+      <i class="fa-regular fa-comment"></i>
+      {{ total_comments }}</span
+    >
+    {% endwith %}
+  </div>
 </div>
 
 <div class="row mb-5">
-    <div class="col-md-6">
-        <h2 class="heading-2">Comments:</h2>
+  <div class="col-md-6">
+    <h2 class="heading-2">Comments:</h2>
 
-        <ul class="list-group mt-3">
-            {% for comment in comments %}
-            <li class="list-group-item">
-                <span class="">{{comment.name}}</span>
-                <span class="text-secondary">{{comment.created_on}}</span>
-                <p>{{comment.body}}</p>
-            </li>
-            {% endfor %}
-        </ul>
+    <ul class="list-group mt-3">
+      {% for comment in comments %}
+      <li class="list-group-item">
+        <span class="">{{comment.name}}</span>
+        <span class="text-secondary">{{comment.created_on}}</span>
+        <p>{{comment.body}}</p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
 
+  <div class="col-md-6">
+    {% if commented %}
+    <div class="alert alert-success" role="alert">
+      Your comment is awaiting approval!
     </div>
 
-    <div class="col-md-6">
-        {% if user.is_authenticated %}
+    {% endif %} {% if user.is_authenticated %}
 
-        <h2 class="heading-2">Leave a comment:</h2>
+    <h2 class="heading-2">Leave a comment:</h2>
 
-        <form action="post">
-            {{ comment_form | crispy }}
-            {% csrf_token %}
-            <button class="btn btn-primary">Submit</button>
-        </form>
-
-        {% endif %}
-
-    </div>
+    <form method="post">
+      {{ comment_form | crispy }} {% csrf_token %}
+      <button class="btn btn-primary">Submit</button>
+    </form>
+    {% endif %}
+  </div>
 </div>
 {% endblock content %}
