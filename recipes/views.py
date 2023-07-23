@@ -51,7 +51,7 @@ class RecipeEdit(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
     model = Recipe
     form_class = RecipeForm
     
-    def  test_func(self):
+    def test_func(self):
         recipe = self.get_object()
         return self.request.user == recipe.author
     
@@ -99,7 +99,7 @@ class RecipeList(generic.ListView):
 class RecipeDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
-        queryset = Recipe.objects.filter(status=1)
+        queryset = Recipe.objects.filter(status__in=[0, 1])
         recipe = get_object_or_404(queryset, slug=slug)
         comments = recipe.comments.filter(approved=True).order_by('created_on')
         liked = False
