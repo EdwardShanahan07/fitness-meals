@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Recipe
@@ -27,6 +27,20 @@ class RecipeCreate(LoginRequiredMixin, generic.CreateView):
         return response
     
     def get_success_url(self):
+        return reverse("recipe_detail", kwargs={'slug': self.object.slug})
+    
+    
+class RecipeEdit(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    template_name = 'recipe_create.html'
+    model = Recipe
+    form_class = RecipeForm
+    
+    def  test_func(self):
+        recipe = self.get_object()
+        return self.request.user == recipe.author
+    
+    def get_success_url(self):
+        messages.success(self.request, "Recipe Updated Successfully!")
         return reverse("recipe_detail", kwargs={'slug': self.object.slug})
         
 

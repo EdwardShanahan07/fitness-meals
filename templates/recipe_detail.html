@@ -36,6 +36,13 @@
         </li>
       </ul>
     </div>
+
+    {% if user == recipe.author %}
+    <a class="btn btn-success" href="{% url 'recipe_edit' slug=recipe.slug %}"
+      >Edit</a
+    >
+
+    {% endif %}
   </div>
 
   <div class="col-md-6">
