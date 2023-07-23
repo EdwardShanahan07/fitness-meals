@@ -109,7 +109,8 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 | Bug                                                                                 | Error Message   | Solution                                                                            |
 | ----------------------------------------------------------------------------------- | --------------- | ----------------------------------------------------------------------------------- |
 | When deploying the project to Heroku, I got an error when viewing the uploaded site | Disallowed Host | In settings.py I changed the value of ALLOWED_HOSTS to my right Heroku project URL. 
-| When liking a recipe I got brought to the ERROR 405 page instead of being redirected to the recipe_detail page | ERROR 405 | In the RecipeLike view, I called the method recipe instead of post. I changed the method to post and it fixed the error.
+| When liking a recipe I got brought to the ERROR 405 page instead of being redirected to the recipe_detail page | ERROR 405 | In the RecipeLike view, I called the method recipe instead of post. I changed the method to post and it fixed the error. 
+| When adding a new recipe but putting the status to draft I was getting an error 404. | ERROR 404 | In RecipeDetail I changed the filter option to filter through published and drafted recipes.
 
 ## Deployment
 
