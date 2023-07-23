@@ -39,7 +39,10 @@
 
     {% if user == recipe.author %}
     <a class="btn btn-success" href="{% url 'recipe_edit' slug=recipe.slug %}"
-      >Edit</a
+      >Edit Recipe</a
+    >
+    <a class="btn btn-danger" href="{% url 'recipe_delete' slug=recipe.slug %}"
+      >Delete Recipe</a
     >
 
     {% endif %}

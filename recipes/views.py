@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views import generic, View
@@ -6,6 +6,22 @@ from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm, RecipeForm
 
+class RecipeDelete(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    template_name = 'recipe_delete.html'
+    model = Recipe
+
+    def test_func(self):
+        recipe = self.get_object()
+        return self.request.user == recipe.author
+
+    def get_success_url(self):
+        return reverse('recipes_list')  
+
+    def post(self, request, *args, **kwargs):
+        recipe = self.get_object()
+        recipe.delete()
+        messages.success(self.request, "Recipe deleted successfully!")  
+        return redirect(self.get_success_url())
 
 class RecipeCreate(LoginRequiredMixin, generic.CreateView):
     """ 
@@ -31,7 +47,7 @@ class RecipeCreate(LoginRequiredMixin, generic.CreateView):
     
     
 class RecipeEdit(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
-    template_name = 'recipe_create.html'
+    template_name = 'recipe_edit.html'
     model = Recipe
     form_class = RecipeForm
     
