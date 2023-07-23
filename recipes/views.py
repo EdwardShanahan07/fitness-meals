@@ -1,8 +1,34 @@
 from django.shortcuts import render, get_object_or_404, reverse
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Recipe
-from .forms import CommentForm
+from .forms import CommentForm, RecipeForm
+
+
+class RecipeCreate(LoginRequiredMixin, generic.CreateView):
+    """ 
+        Create Recipe View.
+        Checks if the form is valid.
+        If the recipe is created successfully the user will be redirect 
+        to the recipe view page.
+    """
+    
+    template_name = "recipe_create.html"
+    model = Recipe
+    form_class = RecipeForm
+    success_url = '<slug:slug>/'
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        response = super().form_valid(form)
+        messages.success(self.request, "Recipe Created Successfully!")
+        return response
+    
+    def get_success_url(self):
+        return reverse("recipe_detail", kwargs={'slug': self.object.slug})
+        
 
 
 class Index(generic.ListView):

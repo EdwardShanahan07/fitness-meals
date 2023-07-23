@@ -33,7 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'fitness-meals-a8fa33ae6819.herokuapp.com',
-    '8000-edwardshana-fitnessmeal-b3cr0giaq63.ws-eu101.gitpod.io'
+    '8000-edwardshana-fitnessmeal-b3cr0giaq63.ws-eu102.gitpod.io'
 ]
 
 
