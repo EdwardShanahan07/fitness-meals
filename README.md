@@ -13,6 +13,8 @@
   - [Bugs](#bugs)
     - [Solved Bugs](#solved-bugs)
 - [Deployment](#deployment)
+  - [How To Clone](#how-to-clone)
+  - [How To Fork](#how-to-fork)
   - [Database](#database)
   - [Cloudinary](#cloudinary)
   - [Heroku](#heroku)
@@ -42,13 +44,14 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 - As a User, I can register an account so that I can create and share my recipes
 - As a User, I can log in so that I can use the application's full functionality
 - As a user, I can log out so that I can keep my account secure
-- As a User, I can create a new recipe so that I can share it with others
+- As a User, I can create a new recipe so that I can share it with other users
 - As a User, I can edit recipes so that I can change recipe details
 - As a User, I can delete my recipes so that I can remove the recipe from the application
-- As a User, I can view recipes so that I can view members' recipes
-- As a User, I can view recipes so that I can see the recipe's full details
+- As a User, I can view a list of shared recipes so that I can get inspiration from other user's recipes
+- As a User, I can view the recipe so that I can see the recipe's full details
 - As a User, I can comment on members' recipes so that I ask questions about the recipe
-- As a User, I can like or unlike recipes so that I can support the other members
+- As a User I can like or unlike recipes so that I can support the other users
+- As a User, I can see my profile page so that I can see my recipes
 
 ## Design
 
@@ -114,6 +117,20 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 
 ## Deployment
 
+### How to Clone
+1. Open up a terminal
+2. Change to the directory where you want the location of the cloned depository 
+3. Copy the code below and paste it into the terminal:
+```console
+git clone https://github.com/EdwardShanahan07/fitness-meals.git
+```
+4. Hit the enter key to clone the repository
+
+### How to Fork
+1. Login or signup to Github
+2. Search for this repository: [EdwardShanahan07/fitness-meals](https://github.com/EdwardShanahan07/fitness-meals)
+3. Ont the top right corner, click Fork
+
 ### Database
 
 1. Register or log in to [ElephantSQL](https://www.elephantsql.com/)
@@ -174,7 +191,7 @@ os.es.environ["CLOUDINARY_URL"] = "CLODINARY API KEY"
 
 ### Code Used
 
-- Project code is based on Code Institue Walkthrough project, "I Think Therefor I Blog".
+- Project code is based on the Code Institue Walkthrough project, "I Think Therefor I Blog".
   [Walkthrough Project](https://github.com/Code-Institute-Solutions/Django3blog/tree/master/12_final_deployment)
 
 ### Content
