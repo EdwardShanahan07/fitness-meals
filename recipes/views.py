@@ -6,6 +6,21 @@ from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm, RecipeForm
 
+class UserProfile(LoginRequiredMixin, generic.ListView):
+    model = Recipe
+    template_name = 'user_profile.html'
+    context_object_name = 'user_recipes'
+    
+    def get_queryset(self):
+        return Recipe.objects.filter(author=self.request.user)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        context['recipes_public'] = context['user_recipes'].filter(status=1)
+        context['recipes_draft'] = context['user_recipes'].filter(status=0)
+        return context
+
 class RecipeDelete(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     template_name = 'recipe_delete.html'
     model = Recipe

@@ -44,6 +44,7 @@
         >
           <div class="navbar-nav">
             {% if user.is_authenticated %}
+            <a class="nav-link" href="{% url 'user_profile' %}">Profile</a>
             <a class="nav-link" href="{% url 'recipes_list' %}">Recipes</a>
             <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             <a class="nav-link text-primary" href="{% url 'recipe_create' %}"
