@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
+
+{% block title %}Fitness Meals | Home{% endblock %}
+
 {% block content %}
+
 <section class="hero mb-5 text-light mb-5">
     <h1 class="heading-1">Welcome To Fitness Meals</h1>
 
@@ -20,7 +24,6 @@
             food
             enthusiasts through comments and likes. Sign up for a free account to access all features.
         </p>
-
         <a href="{% url 'account_signup' %}" class="btn btn-primary">Register</a>
     </div>
 </section>
@@ -32,7 +35,6 @@
         {% for recipe in recipe_list %}
         <div class="col-md-4">
             <div class="card">
-
                 <img class="card-img-top" src="{{ recipe.image.url }}" alt="Card image cap">
                 <div class="card-body">
                     <div class="card-likes d-flex align-items center justify-content-between">
@@ -40,10 +42,8 @@
                             <i class="fa-regular fa-heart"></i>
                             <span class="">{{ recipe.total_likes }}</span>
                         </span>
-
                         <p class="bg-info text-light p-1">{{ recipe.category }}</p>
                     </div>
-
                     <h5 class=" card-title">{{ recipe.title }}</h5>
                     <p class="text-secondary">Author: {{ recipe.author }}</p>
                     <a href="{% url 'recipe_detail' recipe.slug %}" class="btn btn-primary">View Recipe</a>
@@ -53,5 +53,4 @@
         {% endfor %}
     </div>
 </section>
-
 {% endblock content %}

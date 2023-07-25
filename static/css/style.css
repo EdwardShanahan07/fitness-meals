@@ -1,31 +1,39 @@
+/* Hero Section */
+
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url(https://res.cloudinary.com/dqriyfsvh/image/upload/v1689375950/hero-bg_tgzoyy.jpg) no-repeat center/cover;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(https://res.cloudinary.com/dqriyfsvh/image/upload/v1689375950/hero-bg_tgzoyy.jpg)
+      no-repeat center/cover;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
+/* About Section */
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Footer */
+
 .social-links a {
-    text-decoration: none;
-    font-size: 20px;
-    color: #212529;
+  text-decoration: none;
+  font-size: 20px;
+  color: #212529;
 }
 
 .list-inline-item a:hover {
-    color: #181313;
+  color: #181313;
 }
 
 footer .navbar-brand {
-    display: inline-block;
-    font-size: 20px;
+  display: inline-block;
+  font-size: 20px;
 }
 
-.about-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-}

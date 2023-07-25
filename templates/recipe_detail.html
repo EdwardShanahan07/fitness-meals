@@ -1,4 +1,11 @@
-{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+{% extends 'base.html' %} 
+
+{% load crispy_forms_tags %}
+
+{% block title %} Fitness Meals | {{recipe.title}} {% endblock %}
+
+{% block content %}
+
 <div class="row mt-5">
   <div class="col-md-6">
     <div class="info text-secondary d-flex justify-content-between flex-wrap">
@@ -38,13 +45,10 @@
     </div>
 
     {% if user == recipe.author %}
-    <a class="btn btn-success" href="{% url 'recipe_edit' slug=recipe.slug %}"
-      >Edit Recipe</a
-    >
-    <a class="btn btn-danger" href="{% url 'recipe_delete' slug=recipe.slug %}"
-      >Delete Recipe</a
-    >
-
+    <a class="btn btn-success" href="{% url 'recipe_edit' slug=recipe.slug %}">
+      Edit Recipe</a>
+    <a class="btn btn-danger" href="{% url 'recipe_delete' slug=recipe.slug %}">
+      Delete Recipe</a>
     {% endif %}
   </div>
 
@@ -54,8 +58,7 @@
 </div>
 
 <div
-  class="details text-center flex-wrap p-5 bg-dark text-light d-flex justify-content-around align-items-center mb-5"
->
+  class="details text-center flex-wrap p-5 bg-dark text-light d-flex justify-content-around align-items-center mb-5">
   <div class="details-group">
     <i class="fa-solid fa-list"></i>
     <p class="text-center">Category</p>
@@ -103,16 +106,16 @@
     <form
       class="d-inline"
       action="{% url 'recipe_like' recipe.slug %}"
-      method="POST"
-    >
-      {% csrf_token %} {% if liked %}
+      method="POST">
+      {% csrf_token %}
+
+      {% if liked %}
       <button
         class="btn"
         style="color: red"
         type="submit"
         name="recipelike_id"
-        value="{{recipe.slug}}"
-      >
+        value="{{recipe.slug}}">
         <i class="fa-solid fa-heart"></i>
       </button>
       {% else %}
@@ -120,8 +123,7 @@
         class="btn"
         type="submit"
         name="recipelike_id"
-        value="{{recipe.slug}}"
-      >
+        value="{{recipe.slug}}">
         <i class="fa-regular fa-heart"></i>
       </button>
       {% endif %}
@@ -135,8 +137,7 @@
     {% with comments.count as total_comments %}
     <span class="text-secondary">
       <i class="fa-regular fa-comment"></i>
-      {{ total_comments }}</span
-    >
+      {{ total_comments }}</span>
     {% endwith %}
   </div>
 </div>
@@ -161,13 +162,14 @@
     <div class="alert alert-success" role="alert">
       Your comment is awaiting approval!
     </div>
+    {% endif %}
 
-    {% endif %} {% if user.is_authenticated %}
-
+    {% if user.is_authenticated %}
     <h2 class="heading-2">Leave a comment:</h2>
-
     <form method="post">
-      {{ comment_form | crispy }} {% csrf_token %}
+      {{ comment_form | crispy }}
+      
+      {% csrf_token %}
       <button class="btn btn-primary">Submit</button>
     </form>
     {% endif %}

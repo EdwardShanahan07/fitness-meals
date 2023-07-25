@@ -4,29 +4,33 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fitness Meals | Welcome</title>
+    <title>{% block title %} Fitness Meals | Welcome{% endblock %}</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous"/>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+      referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}"
-          >Fitness<span class="fw-bold">Meals</span></a
-        >
+        {% if user.is_authenticated %}
+        <a class="navbar-brand" href="{% url 'recipes_list' %}">
+          Fitness<span class="fw-bold">Meals</span>
+        </a>
+        {% else %}
+        <a class="navbar-brand" href="{% url 'home' %}">
+          Fitness
+          <span class="fw-bold">Meals</span></a>
+        {% endif %}
         <button
           class="navbar-toggler"
           type="button"
@@ -34,29 +38,26 @@
           data-bs-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup"
           aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+          aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div
           class="collapse navbar-collapse justify-content-end"
-          id="navbarNavAltMarkup"
-        >
+          id="navbarNavAltMarkup">
           <div class="navbar-nav">
             {% if user.is_authenticated %}
             <a class="nav-link" href="{% url 'user_profile' %}">Profile</a>
             <a class="nav-link" href="{% url 'recipes_list' %}">Recipes</a>
             <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            <a class="nav-link text-primary" href="{% url 'recipe_create' %}"
-              >Create New Recipe</a
-            >
+            <a class="nav-link text-primary" href="{% url 'recipe_create' %}">
+              Create New Recipe</a>
             {% else %}
             <a
               class="nav-link active"
               aria-current="page"
-              href="{% url 'home' %}"
-              >Home</a
-            >
+              href="{% url 'home' %}">
+              Home
+            </a>
             <a class="nav-link" href="{% url 'recipes_list' %}">Recipes</a>
             <a class="nav-link" href="{% url 'account_login' %}">Login</a>
             <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
@@ -72,34 +73,42 @@
           <div
             class="alert {{ message.tags }} alert-dismissible fade show"
             id="msg"
-            role="alert"
-          >
+            role="alert">
             {{ message | safe }}
             <button
               type="button"
               class="btn-close"
               data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
+              aria-label="Close">
+          </button>
           </div>
           {% endfor %}
         </div>
       </div>
     </div>
-    <main class="container">{% block content %} {% endblock content %}</main>
+    <main class="container">
+      {% block content %}
+      {% endblock content %}
+    </main>
 
     <footer class="border-top container text-center p-5">
-      <a href="{% url 'home' %}" class="navbar-brand">
-        <p>Fitness<span class="fw-bold">Meals</span></p>
-      </a>
+      {% if user.is_authenticated %}
+      <a class="navbar-brand" href="{% url 'recipes_list' %}">
+        Fitness
+        <span class="fw-bold">
+          Meals
+        </span></a>
+      {% else %}
+      <a class="navbar-brand" href="{% url 'home' %}">
+        Fitness<span class="fw-bold">Meals</span></a>
+      {% endif %}
 
       <ul class="social-links list-inline">
         <li class="list-inline-item">
           <a
             href="https://github.com/EdwardShanahan07"
             target="_blank"
-            aria-label="New tab opens GitHub Profile"
-          >
+            aria-label="New tab opens GitHub Profile">
             <i class="fa-brands fa-github"></i>
           </a>
         </li>
@@ -107,29 +116,26 @@
           <a
             href="https://www.linkedin.com/in/edward-shanahan-98647a270"
             target="_blank"
-            aria-label="New tab opens Linkedin Profile"
-          >
+            aria-label="New tab opens Linkedin Profile">
             <i class="fa-brands fa-linkedin-in"></i>
           </a>
         </li>
         <li class="list-inline-item">
           <a
             href="mailto:edwardshanahan357@gmail.com"
-            aria-label="Opens default email application"
-          >
+            aria-label="Opens default email application">
             <i class="fa-solid fa-envelope"></i>
           </a>
         </li>
       </ul>
-
       <p class="text-secondary">©FitnessMeals 2023</p>
     </footer>
 
     <script
       src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous">
+    </script>
     <script>
       setTimeout(function () {
         let messages = document.getElementById("msg")
