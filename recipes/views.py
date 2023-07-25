@@ -7,6 +7,7 @@ from .models import Recipe
 from .forms import CommentForm, RecipeForm
 
 class UserProfile(LoginRequiredMixin, generic.ListView):
+    """ View users published and drafted recipes """
     model = Recipe
     template_name = 'user_profile.html'
     context_object_name = 'user_recipes'
@@ -22,6 +23,7 @@ class UserProfile(LoginRequiredMixin, generic.ListView):
         return context
 
 class RecipeDelete(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    """ Delete user recipe if they own the recipe """
     template_name = 'recipe_delete.html'
     model = Recipe
 
@@ -75,19 +77,10 @@ class RecipeEdit(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
         return reverse("recipe_detail", kwargs={'slug': self.object.slug})
         
 
-
 class Index(generic.ListView):
     """
-        Render home page and display 
-        the 3 most recently created recipes
+        Render home page and display the 3 most recently created recipes
     """
-    """
-        Code used is taken from Code Institute Blog Walkthrough porject
-        'I Think Therefore I Blog'
-    https://github.com/Code-Institute-Solutions/Django3blog/tree/master/
-    12_final_deployment
-    """
-
     model = Recipe
     queryset = Recipe.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
@@ -95,15 +88,7 @@ class Index(generic.ListView):
 
 
 class RecipeList(generic.ListView):
-    """
-        Render all shared recipes
-    """
-    """
-        Code used is taken from Code Institute Blog Walkthrough porject
-        'I Think Therefore I Blog'
-    https://github.com/Code-Institute-Solutions/Django3blog/tree/master/
-    12_final_deployment
-    """
+    """Render all users shared recipes"""
 
     model = Recipe
     queryset = Recipe.objects.filter(status=1).order_by('-created_on')
@@ -112,7 +97,7 @@ class RecipeList(generic.ListView):
 
 
 class RecipeDetail(View):
-
+    """ Display recipe details and comment form """
     def get(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status__in=[0, 1])
         recipe = get_object_or_404(queryset, slug=slug)
@@ -173,7 +158,7 @@ class RecipeDetail(View):
         
         
 class RecipeLike(View):
-    
+    """ Like or unlike recipe """
     def post(self, request, slug, *args, **kwargs):
         recipe = get_object_or_404(Recipe, slug=slug)
         if recipe.likes.filter(id=request.user.id).exists():

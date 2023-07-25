@@ -3,16 +3,14 @@ from django import forms
 from django.utils.text import slugify
 
 class CommentForm(forms.ModelForm):
+    """ Comment Form """
     class Meta:
         model = Comment
         fields = ('body',)
         
         
 class RecipeForm(forms.ModelForm):
-    """ 
-    Recipe form class 
-    Uses a save method to save the recipe title as the slug
-    """
+    """ Create recipe form """
     class Meta:
         model = Recipe
         fields = (
@@ -44,8 +42,8 @@ class RecipeForm(forms.ModelForm):
             'carbs': 'Carbs',
             'protein': 'Protein',
             'fats': 'Fats',
-            'ingredients': 'Recipe Ingredients',
-            'method': 'Method',
+            'ingredients': 'Recipe Ingredients (Please separate the ingredients by the enter key)',
+            'method': 'Method (Please separate the methods by the enter key)',
             'status': 'Status'
         }
         
