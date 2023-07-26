@@ -50,7 +50,7 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 - As a User, I can view a list of shared recipes so that I can get inspiration from other user's recipes
 - As a User, I can view the recipe so that I can see the recipe's full details
 - As a User, I can comment on members' recipes so that I ask questions about the recipe
-- As a User I can like or unlike recipes so that I can support the other users
+- As a User, I can like or unlike recipes so that I can support the other users
 - As a User, I can see my profile page so that I can see my recipes
 
 ## Design
@@ -102,6 +102,28 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
   
   ![](./readme-assets/imgs/edit-recipe.jpg)
 </details>
+
+## Technologies Used
+
+### Languages:
+- Python
+- HTML
+- CSS
+- JavaScript
+
+### Frameworks and Programs:
+- [Django](https://www.djangoproject.com/) - used as the framework
+- [ElephantSQl](https://www.elephantsql.com/) - used to store project data
+- [Cloudinary](https://cloudinary.com/) - used to store media and static files
+- [GitPod](https://www.gitpod.io/) - used to development the website
+- [Heroku](https://www.heroku.com/) - used to deploy the project
+- [git](https://git-scm.com/) - used for version control
+- [GitHub](https://github.com/) - used to store code
+- [Font Awesome](https://fontawesome.com/) - used to create ERD
+- [Bootstrap 5](https://getbootstrap.com/) - used for layout and styling
+- [Figma](https://www.figma.com/) - used to create project wireframes
+- [LucidChart](https://www.lucidchart.com/pages/) - used to create ERD
+- [Favicon](https://favicon.io/) - used to generate favicon
 
 ## Tests
 
@@ -156,7 +178,7 @@ git clone https://github.com/EdwardShanahan07/fitness-meals.git
 3. Name your app name
 4. Select your region
 5. Open the settings tab, and click the "Reval Config Vars"
-6. Add DATABASE_URL to Config Vars and use your database url as the value
+6. Add DATABASE_URL to Config Vars and use your database URL as the value
 7. Add SECRET_KEY to Config Vars and use your secret key
 8. Add CLOUDINARY_URL to Config Vars and use your Cloudinary API Environment Variable
 9. Select the Deploy tab, choose GitHub as your deployment method
