@@ -197,6 +197,7 @@ os.es.environ["CLOUDINARY_URL"] = "CLODINARY API KEY"
 ### Content
 
 - Recipes content is from [MyProtein](https://www.myprotein.ie/blog/recipe/healthy-breakfast-burrito/)
+- Favicon: [Salad icons created by smalllikeart - Flaticon](https://www.flaticon.com/free-icons/salad)
 
 ### Media
 
