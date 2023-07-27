@@ -45,7 +45,15 @@ footer .navbar-brand {
   object-fit: cover;
 }
 
+/* Forms */
 
+form label {
+  display: block;
+}
+
+form textarea {
+  resize: none;
+}
 
 
 
