@@ -13,12 +13,12 @@
 </section>
 
 <section class="about row">
-    <div class="col-md-6 mb-5">
+    <div class="col-lg-6 mb-5">
         <img class="img-fluid"
             src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt="">
     </div>
-    <div class="col-md-6 about-text">
+    <div class="col-lg-6 about-text mb-5">
         <h2 class="heading-2">About Us</h2>
         <p>Discover healthy recipes on Fitness Meals, the app where users share nutritious meals and connect with other
             food
@@ -33,7 +33,7 @@
 
     <div class="row">
         {% for recipe in recipe_list %}
-        <div class="col-lg-4">
+        <div class="col-lg-4 mb-5">
             <div class="card">
                 <img class="card-img-top" src="{{ recipe.image.url }}" alt="Card image cap">
                 <div class="card-body d-flex align-items-stretch flex-column">
