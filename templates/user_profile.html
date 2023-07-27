@@ -4,13 +4,13 @@
 
 {% block content %}
 
-<h1 class="heading-1 text-center mb-5">{{ user.username }} Recipes</h1>
-<h2 class="heading-2">Public Recipes</h2>
+<h1 class="heading-1 text-center mb-5 mt-5">{{ user.username }} Recipes</h1>
+<h2 class="heading-2 mb-5">Public Recipes:</h2>
 <div class="row">
   {% if recipes_public %} 
   
   {% for recipe in recipes_public %}
-  <div class="col-lg-4">
+  <div class="col-lg-4 mb-5">
     <div class="card">
       <img
         class="card-img-top"
@@ -40,12 +40,12 @@
   <p>You don’t have any public recipes.</p>
   {% endif %}
 </div>
-<h2 class="heading-2">Draft Recipes</h2>
-<div class="row">
+<h2 class="heading-2">Draft Recipes:</h2>
+<div class="row mb-5">
   {% if recipes_draft %}
 
   {% for recipe in recipes_draft %}
-  <div class="col-lg-4">
+  <div class="col-lg-4 mb-5">
     <div class="card">
       <img
         class="card-img-top img-fluid"
