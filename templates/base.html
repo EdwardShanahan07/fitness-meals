@@ -56,7 +56,7 @@
               Create New Recipe</a>
             {% else %}
             <a
-              class="nav-link active"
+              class="nav-link"
               aria-current="page"
               href="{% url 'home' %}">
               Home
@@ -96,13 +96,13 @@
 
     <footer class="border-top container text-center p-5">
       {% if user.is_authenticated %}
-      <a class="navbar-brand" href="{% url 'recipes_list' %}">
+      <a class="navbar-brand mb-3" href="{% url 'recipes_list' %}">
         Fitness
         <span class="fw-bold">
           Meals
         </span></a>
       {% else %}
-      <a class="navbar-brand" href="{% url 'home' %}">
+      <a class="navbar-brand mb-3" href="{% url 'home' %}">
         Fitness<span class="fw-bold">Meals</span></a>
       {% endif %}
 
