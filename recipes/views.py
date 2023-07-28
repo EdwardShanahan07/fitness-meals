@@ -8,6 +8,7 @@ from .forms import CommentForm, RecipeForm
 
 class UserProfile(LoginRequiredMixin, generic.ListView):
     """ View users published and drafted recipes """
+    
     model = Recipe
     template_name = 'user_profile.html'
     context_object_name = 'user_recipes'
@@ -61,6 +62,11 @@ class RecipeCreate(LoginRequiredMixin, generic.CreateView):
     
     def get_success_url(self):
         return reverse("recipe_detail", kwargs={'slug': self.object.slug})
+    
+    
+    def form_invalid(self, form):
+        messages.error(self.request, "Error creating the recipe. Please check the form.")
+        return super().form_invalid(form)
     
     
 class RecipeEdit(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
