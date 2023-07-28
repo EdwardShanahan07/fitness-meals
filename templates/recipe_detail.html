@@ -7,8 +7,8 @@
 {% block content %}
 
 <div class="row mt-5">
-  <div class="col-md-6 pb-5">
-    <div class="info text-secondary d-flex justify-content-between flex-wrap">
+  <div class="col-lg-6 col-md-12">
+    <div class="info text-secondary d-lg-flex justify-content-between mb-3">
       <p>
         <i class="fa-regular fa-user"></i>
         {{recipe.author}}
@@ -17,42 +17,43 @@
       <span>Last Updated: {{recipe.updated_on}}</span>
     </div>
 
-    <h1 class="heading-1">{{recipe.title}}</h1>
+    <h1 class="heading-1 mb-3">{{recipe.title}}</h1>
 
-    <p>{{ recipe.description }}</p>
+    <p class="text-secondary">{{ recipe.description }}</p>
 
-    <div>
+    <div class="mb-3">
       <p class="fw-bold">Nutriotion facts per servings:</p>
-
-      <ul class="list-inline d-flex">
-        <li class="list-inline-item">
-          <p class="">Calories</p>
+      <div class="nutriotion-list d-flex flex-sm-wrap justify-content-between align-items-start">
+        <div>
+          <p>Calories</p>
           <p class="fw-bold">{{ recipe.calories }}</p>
-        </li>
-        <li class="list-inline-item">
-          <p class="">Protein</p>
+        </div>
+        <div>
+          <p>Protein</p>
           <p class="fw-bold">{{ recipe.protein }}g</p>
-        </li>
-        <li class="list-inline-item">
-          <p class="">Carbs</p>
+        </div>
+        <div>
+          <p>Carbs</p>
           <p class="fw-bold">{{ recipe.carbs }}g</p>
-        </li>
-        <li class="list-inline-item">
-          <p class="">Carbs</p>
+        </div>
+        <div>
+          <p>Carbs</p>
           <p class="fw-bold">{{ recipe.fats }}g</p>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
 
-    {% if user == recipe.author %}
-    <a class="btn btn-success" href="{% url 'recipe_edit' slug=recipe.slug %}">
+    <div class="group mb-5">
+      {% if user == recipe.author %}
+    <a class="btn btn-primary d-inline-block me-3" href="{% url 'recipe_edit' slug=recipe.slug %}">
       Edit Recipe</a>
     <a class="btn btn-danger" href="{% url 'recipe_delete' slug=recipe.slug %}">
       Delete Recipe</a>
     {% endif %}
+    </div>
   </div>
 
-  <div class="col-md-6 ">
+  <div class="col-lg-6 col-md-12">
     {% if "placeholder" in recipe.image.url %}
     <img class="img-fluid recipe-detail-img" src="https://res.cloudinary.com/dqriyfsvh/image/upload/v1690574832/kckl2voarmwlkdfvvnlb.jpg" alt="Meal Prep">
     {% else %}
@@ -62,30 +63,30 @@
 </div>
 
 <div
-  class="details text-center flex-wrap p-5 bg-dark text-light d-flex justify-content-around align-items-center mb-5">
-  <div class="details-group">
+  class="details text-center flex-wrap p-5 bg-dark text-light d-md-flex justify-content-around align-items-center mb-5">
+  <div class="details-group mb-4">
     <i class="fa-solid fa-list"></i>
     <p class="text-center">Category</p>
-    <p class="">{{ recipe.category }}</p>
+    <p class="fw-bold">{{ recipe.category }}</p>
   </div>
-  <div class="details-group">
+  <div class="details-group mb-4">
     <i class="fa-regular fa-clock"></i>
     <p class="text-center">Prep Time</p>
-    <p class="">{{ recipe.prep_time }} minutes</p>
+    <p class="fw-bold">{{ recipe.prep_time }} minutes</p>
   </div>
-  <div class="details-group">
+  <div class="details-group mb-4">
     <i class="fa-regular fa-clock"></i>
     <p class="text-center">Cook Time</p>
-    <p class="">{{ recipe.cook_time }} minutes</p>
+    <p class="fw-bold">{{ recipe.cook_time }} minutes</p>
   </div>
-  <div class="details-group">
-    <i class="fa-solid fa-hourglass"></i>
+  <div class="details-group mb-4">
+    <i class="fa-solid fa-utensils"></i>
     <p class="text-center">Servings</p>
-    <p class="">{{ recipe.servings }} servings</p>
+    <p class="fw-bold">{{ recipe.servings }} servings</p>
   </div>
 </div>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-lg-6">
     <h2 class="heading-2">Ingredients:</h2>
     <ul>
       {% for ingredient in ingredients_list %}
@@ -94,7 +95,7 @@
     </ul>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-lg-6">
     <h2 class="heading-2">Method:</h2>
     <ol>
       {% for method in methods_list %}
@@ -104,13 +105,13 @@
   </div>
 </div>
 
-<div class="row pb-2 border-bottom mb-3">
-  <div class="col-1">
+<div class="border-bottom mb-3 d-flex align-items-center">
+  <div class="d-flex align-items-center me-3">
     {% if user.is_authenticated %}
     <form
-      class="d-inline"
       action="{% url 'recipe_like' recipe.slug %}"
       method="POST">
+
       {% csrf_token %}
 
       {% if liked %}
@@ -122,6 +123,7 @@
         value="{{recipe.slug}}">
         <i class="fa-solid fa-heart"></i>
       </button>
+      
       {% else %}
       <button
         class="btn"
@@ -137,7 +139,7 @@
     {% endif%}
     <span class="text-secondary"> {{recipe.total_likes}} </span>
   </div>
-  <div class="col-1">
+  <div class="d-flex align-items-center">
     {% with comments.count as total_comments %}
     <span class="text-secondary">
       <i class="fa-regular fa-comment"></i>
@@ -147,7 +149,7 @@
 </div>
 
 <div class="row mb-5">
-  <div class="col-md-6">
+  <div class="col-lg-6 mb-5">
     <h2 class="heading-2">Comments:</h2>
 
     <ul class="list-group mt-3">
@@ -161,7 +163,7 @@
     </ul>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-lg-6">
     {% if commented %}
     <div class="alert alert-success" role="alert">
       Your comment is awaiting approval!
@@ -170,11 +172,11 @@
 
     {% if user.is_authenticated %}
     <h2 class="heading-2">Leave a comment:</h2>
-    <form method="post">
+    <form class="recipe-detail-form" method="post">
       {{ comment_form | crispy }}
       
       {% csrf_token %}
-      <button class="btn btn-primary">Submit</button>
+      <button class="btn btn-primary mt-3">Submit</button>
     </form>
     {% endif %}
   </div>

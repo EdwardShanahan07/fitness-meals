@@ -55,5 +55,12 @@ form textarea {
   resize: none;
 }
 
+/* Recip Detail */
 
+.btn .fa-heart:hover {
+  color: red;
+}
 
+.recipe-detail-form textarea {
+  width: 100%;
+}
