@@ -1,3 +1,6 @@
+body {
+  color: #444;
+}
 /* Hero Section */
 
 .hero {
@@ -63,4 +66,37 @@ form textarea {
 
 .recipe-detail-form textarea {
   width: 100%;
+}
+
+.btn-primary {
+  background-color: #FE5E41;
+  border-color: inherit;
+}
+
+.btn-primary:hover {
+  background-color: #f95336;
+  border-color: inherit;
+}
+
+.text-primary {
+  color: #FE5E41 !important;
+}
+
+.btn-outline-primary {
+  color: #f95336 !important;
+  border-color: inherit;
+}
+
+.btn-outline-primary:hover {
+  color: #fff !important;
+  background-color: #f95336 !important;
+  border-color: inherit;
+}
+
+.bg-info {
+  background-color: #47A8BD !important;
+}
+
+.bg-info {
+  background-color: #4A5859 !important;
 }
