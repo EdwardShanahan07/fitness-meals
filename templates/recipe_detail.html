@@ -53,7 +53,11 @@
   </div>
 
   <div class="col-md-6 ">
-    <img class="img-fluid recipe-detail-img" src="{{recipe.image.url}}" alt="" />
+    {% if "placeholder" in recipe.image.url %}
+    <img class="img-fluid recipe-detail-img" src="https://res.cloudinary.com/dqriyfsvh/image/upload/v1690574832/kckl2voarmwlkdfvvnlb.jpg" alt="Meal Prep">
+    {% else %}
+    <img class="img-fluid recipe-detail-img" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+    {% endif %}
   </div>
 </div>
 
