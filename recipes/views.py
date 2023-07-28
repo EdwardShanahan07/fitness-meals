@@ -6,16 +6,77 @@ from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm, RecipeForm
 
-class UserProfile(LoginRequiredMixin, generic.ListView):
-    """ View users published and drafted recipes """
+class RecipeCreate(LoginRequiredMixin, generic.CreateView):
+    """ Create Recipe View """
     
+    template_name = "recipe_create.html"
+    model = Recipe
+    form_class = RecipeForm
+    success_url = '<slug:slug>/'
+    
+    # Checks if the form is valid
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        response = super().form_valid(form)
+        messages.success(self.request, "Recipe Created Successfully!")
+        return response
+    
+    # If created successfully the user will redirect to the recipe detail page.
+    def get_success_url(self):
+        return reverse("recipe_detail", kwargs={'slug': self.object.slug})
+    
+    # If form is invaild message error will appear
+    def form_invalid(self, form):
+        messages.error(self.request, "Error creating the recipe. Please check the form.")
+        return super().form_invalid(form)
+    
+class RecipeDelete(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    """ Delete Recipe View """
+    template_name = 'recipe_delete.html'
+    model = Recipe
+
+    # Check if the user owns the recipe
+    def test_func(self):
+        recipe = self.get_object()
+        return self.request.user == recipe.author
+
+    # If deleted successfully they will be redirected to the recipes page
+    def get_success_url(self):
+        return reverse('recipes_list')  
+
+    # Delete Recipe and display success message
+    def post(self, request, *args, **kwargs):
+        recipe = self.get_object()
+        recipe.delete()
+        messages.success(self.request, "Recipe deleted successfully!")  
+        return redirect(self.get_success_url())
+
+class RecipeEdit(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    template_name = 'recipe_edit.html'
+    model = Recipe
+    form_class = RecipeForm
+    
+    # Check if the user owns the recipe
+    def test_func(self):
+        recipe = self.get_object()
+        return self.request.user == recipe.author
+    
+    # A success message will display if edited successfully
+    def get_success_url(self):
+        messages.success(self.request, "Recipe Updated Successfully!")
+        return reverse("recipe_detail", kwargs={'slug': self.object.slug})
+
+class UserProfile(LoginRequiredMixin, generic.ListView):
+    """ User Profile View """
     model = Recipe
     template_name = 'user_profile.html'
     context_object_name = 'user_recipes'
     
+    # Gets logged in user
     def get_queryset(self):
         return Recipe.objects.filter(author=self.request.user)
     
+    # Filters users shared and frafted recipes
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['user'] = self.request.user
@@ -23,65 +84,6 @@ class UserProfile(LoginRequiredMixin, generic.ListView):
         context['recipes_draft'] = context['user_recipes'].filter(status=0)
         return context
 
-class RecipeDelete(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
-    """ Delete user recipe if they own the recipe """
-    template_name = 'recipe_delete.html'
-    model = Recipe
-
-    def test_func(self):
-        recipe = self.get_object()
-        return self.request.user == recipe.author
-
-    def get_success_url(self):
-        return reverse('recipes_list')  
-
-    def post(self, request, *args, **kwargs):
-        recipe = self.get_object()
-        recipe.delete()
-        messages.success(self.request, "Recipe deleted successfully!")  
-        return redirect(self.get_success_url())
-
-class RecipeCreate(LoginRequiredMixin, generic.CreateView):
-    """ 
-        Create Recipe View.
-        Checks if the form is valid.
-        If the recipe is created successfully the user will be redirect 
-        to the recipe view page.
-    """
-    
-    template_name = "recipe_create.html"
-    model = Recipe
-    form_class = RecipeForm
-    success_url = '<slug:slug>/'
-    
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        response = super().form_valid(form)
-        messages.success(self.request, "Recipe Created Successfully!")
-        return response
-    
-    def get_success_url(self):
-        return reverse("recipe_detail", kwargs={'slug': self.object.slug})
-    
-    
-    def form_invalid(self, form):
-        messages.error(self.request, "Error creating the recipe. Please check the form.")
-        return super().form_invalid(form)
-    
-    
-class RecipeEdit(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
-    template_name = 'recipe_edit.html'
-    model = Recipe
-    form_class = RecipeForm
-    
-    def test_func(self):
-        recipe = self.get_object()
-        return self.request.user == recipe.author
-    
-    def get_success_url(self):
-        messages.success(self.request, "Recipe Updated Successfully!")
-        return reverse("recipe_detail", kwargs={'slug': self.object.slug})
-        
 
 class Index(generic.ListView):
     """
@@ -103,16 +105,20 @@ class RecipeList(generic.ListView):
 
 
 class RecipeDetail(View):
-    """ Display recipe details and comment form """
+    """ Recipe Detail View """
+    
+    # Get recipe and comments
     def get(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status__in=[0, 1])
         recipe = get_object_or_404(queryset, slug=slug)
         comments = recipe.comments.filter(approved=True).order_by('created_on')
         liked = False
-
+        
+        # Splits ingredients and method by escape key
         ingredients_list = recipe.ingredients.split("\n")
         methods_list = recipe.method.split("\n")
 
+        # Checks if the user has liked the recipe
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
 
@@ -130,6 +136,8 @@ class RecipeDetail(View):
             }
         )
         
+        
+    # Post comment form and render comments 
     def post(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
@@ -164,7 +172,9 @@ class RecipeDetail(View):
         
         
 class RecipeLike(View):
-    """ Like or unlike recipe """
+    """ Recipe Like View """
+    
+    # Post like form 
     def post(self, request, slug, *args, **kwargs):
         recipe = get_object_or_404(Recipe, slug=slug)
         if recipe.likes.filter(id=request.user.id).exists():
