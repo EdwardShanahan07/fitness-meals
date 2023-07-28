@@ -4,6 +4,7 @@ from django.utils.text import slugify
 
 class CommentForm(forms.ModelForm):
     """ Comment Form """
+    
     class Meta:
         model = Comment
         fields = ('body',)
@@ -11,6 +12,7 @@ class CommentForm(forms.ModelForm):
         
 class RecipeForm(forms.ModelForm):
     """ Create recipe form """
+    
     class Meta:
         model = Recipe
         fields = (
@@ -46,6 +48,8 @@ class RecipeForm(forms.ModelForm):
             'method': 'Method (Please separate the methods by the enter key)',
             'status': 'Status'
         }
+        
+    # Use the title as the slug
         
     def save(self, commit=True):
         instance = super().save(commit=False)
