@@ -1,9 +1,6 @@
 from . import views
 from django.urls import path
 
-handler404 = views.custom_404
-handler500 = views.custom_500
-
 urlpatterns = [
     path('', views.Index.as_view(), name="home"),
     path('recipes/', views.RecipeList.as_view(), name="recipes_list"),
@@ -14,3 +11,5 @@ urlpatterns = [
     path('profile/', views.UserProfile.as_view(), name='user_profile'),
     path('like/<slug:slug>/', views.RecipeLike.as_view(), name="recipe_like"),
 ]
+
+handler404 = views.custom_404_view
