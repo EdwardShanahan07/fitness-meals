@@ -2,6 +2,7 @@ from . import views
 from django.urls import path
 
 handler404 = views.custom_404
+handler500 = views.custom_500
 
 urlpatterns = [
     path('', views.Index.as_view(), name="home"),
