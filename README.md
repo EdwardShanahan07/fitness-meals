@@ -11,6 +11,8 @@
     - [Wireframes](#wireframes)
     - [Colour Palette](#colour-palette)
 - [Tests](#tests)
+  - [Validation](#validation)
+    - [Python Validation](#python-validation)
   - [Bugs](#bugs)
     - [Solved Bugs](#solved-bugs)
 - [Deployment](#deployment)
@@ -132,6 +134,63 @@ The project's colour palette is straightforward. Due to the potential for severa
 - [Coolors](https://coolors.co/) - used to generate colour palette 
 
 ## Tests
+
+## Validation
+
+### Python Validation
+Python was tested using [Pep8ci](https://pep8ci.herokuapp.com/), Code Institute Python Linter
+
+#### Recipes
+
+<details>
+  <summary>admin.py - Result</summary>
+  
+  ![](./readme-assets/imgs/admin-result.png)
+</details>
+
+<details>
+  <summary>app.js - Result</summary>
+  
+  ![](./readme-assets/imgs/app-result.png)
+</details>
+
+<details>
+  <summary>forms.js - Result</summary>
+  
+  ![](./readme-assets/imgs/forms-result.png)
+</details>
+
+<details>
+  <summary>models.js - Result</summary>
+  
+  ![](./readme-assets/imgs/models-result.png)
+</details>
+
+<details>
+  <summary>urls.js - Result</summary>
+  
+  ![](./readme-assets/imgs/recipe-urls-result.png)
+</details>
+
+<details>
+  <summary>views.py - Result</summary>
+  
+  ![](./readme-assets/imgs/views-result.png)
+</details>
+
+#### fittness_meals
+
+<details>
+  <summary>settings.py - Result</summary>
+  
+  ![](./readme-assets/imgs/settings-result.png)
+</details>
+
+<details>
+  <summary>urls.py - Result</summary>
+  
+  ![](./readme-assets/imgs/fitness-urls-result.png)
+</details>
 
 ### Bugs
 

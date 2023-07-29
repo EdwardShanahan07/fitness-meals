@@ -2,17 +2,18 @@ from .models import Comment, Recipe
 from django import forms
 from django.utils.text import slugify
 
+
 class CommentForm(forms.ModelForm):
     """ Comment Form """
-    
+
     class Meta:
         model = Comment
         fields = ('body',)
-        
-        
+
+
 class RecipeForm(forms.ModelForm):
     """ Create recipe form """
-    
+
     class Meta:
         model = Recipe
         fields = (
@@ -31,7 +32,7 @@ class RecipeForm(forms.ModelForm):
             'method',
             'status',
         )
-        
+
         labels = {
             'title': 'Recipe Title',
             'description': 'Description',
@@ -44,17 +45,17 @@ class RecipeForm(forms.ModelForm):
             'carbs': 'Carbs',
             'protein': 'Protein',
             'fats': 'Fats',
-            'ingredients': 'Recipe Ingredients (Please separate the ingredients by the enter key)',
-            'method': 'Method (Please separate the methods by the enter key)',
+            'ingredients': 'Recipe Ingredients ' +
+                    '(Please separate the ingredients by the escape key)',
+            'method': 'Method (Please separate the methods by the escape key)',
             'status': 'Status'
         }
-        
+
     # Use the title as the slug
-        
+
     def save(self, commit=True):
         instance = super().save(commit=False)
-        instance.slug = slugify(instance.title)  
+        instance.slug = slugify(instance.title)
         if commit:
             instance.save()
         return instance
-        
