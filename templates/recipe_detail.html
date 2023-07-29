@@ -44,7 +44,7 @@
     </div>
 
     <div class="group mb-5">
-      {% if user == recipe.author %}
+    {% if user == recipe.author %}
     <a class="btn btn-primary d-inline-block me-3" href="{% url 'recipe_edit' slug=recipe.slug %}">
       Edit Recipe</a>
     <a class="btn btn-outline-primary" href="{% url 'recipe_delete' slug=recipe.slug %}">

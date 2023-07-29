@@ -4,12 +4,24 @@
 
 {% block content %}
 
-<h1>Confirm Delete</h1>
-<p>Are you sure you want to delete the recipe "{{ recipe.title }}"?</p>
-<form method="post">
-  {% csrf_token %}
-  <input class="btn btn-success" type="submit" value="Confirm" />
-  <a class="btn btn-danger" href="{% url 'recipe_detail' slug=recipe.slug %}">
-    Cancel</a>
-</form>
+<!-- Delete Recipe Form -->
+<div class="recipe-form p-5 mt-5 mb-5 ">
+  <h1 class="text-center">Confirm Delete</h1>
+  <p class="text-center">Are you sure you want to delete the recipe "{{ recipe.title }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <div class="d-flex text-center justify-content-center">
+      <div class="me-3">
+        <button class="btn btn-primary" type="submit" value="Confirm">Confirm</button>
+      </div>
+      <div>
+        <a class="btn btn-outline-primary" href="{% url 'recipe_detail' slug=recipe.slug %}">
+          Cancel
+          </a>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- Delete Recipe Form End -->
+
 {% endblock content %}

@@ -3,7 +3,7 @@
 {% block title %}Fitness Meals | Home{% endblock %}
 
 {% block content %}
-
+<!-- Hero Section -->
 <section class="hero mb-5 text-light mb-5">
     <h1 class="heading-1">Welcome To Fitness Meals</h1>
 
@@ -11,7 +11,9 @@
 
     <a href="{% url 'recipes_list' %}" class="btn btn-primary inline-block">View Recipes</a>
 </section>
+<!-- Hero Section End -->
 
+<!-- About Section -->
 <section class="about row">
     <div class="col-lg-6 mb-5">
         <img class="img-fluid"
@@ -27,7 +29,9 @@
         <a href="{% url 'account_signup' %}" class="btn btn-primary">Register</a>
     </div>
 </section>
+<!-- About Section End -->
 
+<!-- Recent Recipes -->
 <section class="recent-recipes">
     <h2 class="heading-2 text-center mb-5">Recent Recipes</h2>
 
@@ -60,4 +64,6 @@
         {% endfor %}
     </div>
 </section>
+<!-- Recent Recipes End -->
+
 {% endblock content %}
