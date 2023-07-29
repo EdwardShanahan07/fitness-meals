@@ -169,6 +169,12 @@ HTML code was tested using [W3C Validator](https://validator.w3.org/nu/)
 </details>
 
 <details>
+  <summary>signup.html - Result</summary>
+  
+  ![](./readme-assets/imgs/signup.png)
+</details>
+
+<details>
   <summary>login.html - Result</summary>
   
   ![](./readme-assets/imgs/login.png)
@@ -267,10 +273,73 @@ Python was tested using [Pep8ci](https://pep8ci.herokuapp.com/), Code Institute 
 </details>
 
 #### manage.py
+
 <details>
   <summary>manage.py - Result</summary>
   
   ![](./readme-assets/imgs/manage-result.png)
+</details>
+
+### Lighouse Testing
+
+<details>
+  <summary>Home Page - Result</summary>
+  
+  ![](./readme-assets/imgs/lighthouse-home.png)
+</details>
+
+<details>
+  <summary>Recipes Page - Result</summary>
+  
+  ![](./readme-assets/imgs/lighthouse-recipes.png)
+</details>
+
+<details>
+  <summary>Recipes Detail Page - Result</summary>
+  
+  ![](./readme-assets/imgs/lighthouse-recipe-detail.png)
+</details>
+
+<details>
+  <summary>Sign Up Page - Result</summary>
+  
+  ![](./readme-assets/imgs/lighthouse-signup.png)
+</details>
+
+<details>
+  <summary>Sign In Page - Result</summary>
+  
+  ![](./readme-assets/imgs/lighthouse-login.png)
+</details>
+
+<details>
+  <summary>Logout Page - Result</summary>
+  
+  ![](./readme-assets/imgs/lighthouse-logout.png)
+</details>
+
+<details>
+  <summary>Create Recipe Page - Result</summary>
+  
+  ![](./readme-assets/imgs/lighthouse-recipe-create.png)
+</details>
+
+<details>
+  <summary>Edit Recipe Page - Result</summary>
+  
+  ![](./readme-assets/imgs/lighthouse-recipe-edit.png)
+</details>
+
+<details>
+  <summary>Delete Recipe Page - Result</summary>
+  
+  ![](./readme-assets/imgs/lighthouse-recipe-delete.png)
+</details>
+
+<details>
+  <summary>Profile Page - Result</summary>
+  
+  ![](./readme-assets/imgs/lighthouse-profile.png)
 </details>
 
 ### Bugs
