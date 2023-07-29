@@ -13,6 +13,8 @@
 - [Tests](#tests)
   - [Validation](#validation)
     - [Python Validation](#python-validation)
+      - [recipes](#recipes)
+      - [fitness_meals](#fitness-meals)
   - [Bugs](#bugs)
     - [Solved Bugs](#solved-bugs)
 - [Deployment](#deployment)
@@ -190,6 +192,13 @@ Python was tested using [Pep8ci](https://pep8ci.herokuapp.com/), Code Institute 
   <summary>urls.py - Result</summary>
   
   ![](./readme-assets/imgs/fitness-urls-result.png)
+</details>
+
+#### manage.py
+<details>
+  <summary>manage.py - Result</summary>
+  
+  ![](./readme-assets/imgs/manage-result.png)
 </details>
 
 ### Bugs
