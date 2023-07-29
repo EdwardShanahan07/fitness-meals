@@ -12,6 +12,8 @@
     - [Colour Palette](#colour-palette)
 - [Tests](#tests)
   - [Validation](#validation)
+    - [HTML Validation](#html-validation)
+    - [CSS Validation](#css-validation)
     - [Python Validation](#python-validation)
       - [recipes](#recipes)
       - [fitness_meals](#fitness-meals)
@@ -139,14 +141,84 @@ The project's colour palette is straightforward. Due to the potential for severa
 
 ## Validation
 
+### HTML Validation
+HTML code was tested using [W3C Validator](https://validator.w3.org/nu/)
+
+<details>
+  <summary>index.html - Result</summary>
+  
+  ![](./readme-assets/imgs/home-results.png)
+</details>
+
+<details>
+  <summary>recipes_list.html - Result</summary>
+  
+  ![](./readme-assets/imgs/recipes.png)
+</details>
+
+<details>
+  <summary>recipes_list.html - Result</summary>
+  
+  ![](./readme-assets/imgs/recipes.png)
+</details>
+
+<details>
+  <summary>recipes_detail.html - Result</summary>
+  
+  ![](./readme-assets/imgs/recipe-detail.png)
+</details>
+
+<details>
+  <summary>login.html - Result</summary>
+  
+  ![](./readme-assets/imgs/login.png)
+</details>
+
+<details>
+  <summary>logout.html - Result</summary>
+  
+  ![](./readme-assets/imgs/logout.png)
+</details>
+
+<details>
+  <summary>recipe_create.html - Result</summary>
+  
+  ![](./readme-assets/imgs/create-recipe.png)
+</details>
+
+<details>
+  <summary>recipe_edit.html - Result</summary>
+  
+  ![](./readme-assets/imgs/recipe-edit.png)
+</details>
+
+<details>
+  <summary>recipe_delete.html - Result</summary>
+  
+  ![](./readme-assets/imgs/recipe-delete.png)
+</details>
+
+<details>
+  <summary>profile.html - Result</summary>
+  
+  ![](./readme-assets/imgs/profile.png)
+</details>
+
+### CSS Validation
+CSS code was tested using [jigsaw](https://jigsaw.w3.org/css-validator/)
+<details>
+  <summary> style.css - Result</summary>
+  
+  ![](./readme-assets/imgs/css-result.png)
+</details>
+
 ### Python Validation
-Python was tested using [Pep8ci](https://pep8ci.herokuapp.com/), Code Institute Python Linter
+Python was tested using [Pep8ci](https://pep8ci.herokuapp.com/), Code Institute Python Linter.
 
 #### Recipes
 
 <details>
   <summary>admin.py - Result</summary>
-  
   ![](./readme-assets/imgs/admin-result.png)
 </details>
 
