@@ -183,3 +183,8 @@ class RecipeLike(View):
             recipe.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
+    
+
+def custom_404(request, exception):
+    """ Render 404 page """
+    return render(request, "404.html")
