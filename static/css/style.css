@@ -50,15 +50,16 @@ footer .navbar-brand {
 
 /* Forms */
 
-form label {
+form input {
   display: block;
 }
 
 form textarea {
+  display: block;
   resize: none;
 }
 
-/* Recip Detail */
+/* Recipe Detail */
 
 .btn .fa-heart:hover {
   color: red;
@@ -70,12 +71,12 @@ form textarea {
 
 .btn-primary {
   background-color: #FE5E41;
-  border-color: inherit;
+  border-color: #FE5E41;
 }
 
 .btn-primary:hover {
   background-color: #f95336;
-  border-color: inherit;
+  border-color: #FE5E41;
 }
 
 .text-primary {
@@ -100,3 +101,41 @@ form textarea {
 .bg-info {
   background-color: #4A5859 !important;
 }
+
+/* Recipe Form */
+
+.recipe-form {
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-form input {
+  border: none;
+  border-bottom: 1px solid #444444;
+  width: 100%;
+}
+
+.recipe-form label {
+  color: rgb(108, 117, 125);
+  margin-bottom: 10px;
+}
+
+.recipe-form textarea {
+  width: 100%;
+}
+
+.login p:last-of-type {
+  display: flex;
+  align-items: center;
+}
+
+.login p:last-of-type label {
+  flex-basis: 25%;
+}
+
+.login p:last-of-type input {
+  flex-basis: 10%;
+}
+
+

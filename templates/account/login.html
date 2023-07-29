@@ -7,12 +7,12 @@
 
 {% block content %}
 
-<h1 class="heading-1 mt-5">{% trans "Sign In" %}</h1>
+<div class="recipe-form mb-5 p-5 mt-5">
+    <h1 class="heading-1">{% trans "Sign In" %}</h1>
 
-<p class="mb-5">{% blocktrans %}If you have not created Fitnes Meals account yet, then please
+<p class="">{% blocktrans %}If you have not created Fitnes Meals account yet, then please
     <a class="link-opacity-100-hover" href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
 </p>
-
 
 <form class="login mb-5" method="POST" action="{% url 'account_login' %}">
     {% csrf_token %}
@@ -22,5 +22,6 @@
     {% endif %}
     <button class="primaryAction btn btn-primary" type="submit">{% trans "Sign In" %}</button>
 </form>
+</div>
 
 {% endblock %}

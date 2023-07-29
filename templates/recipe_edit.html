@@ -4,13 +4,15 @@
 
 {% block content %}
 
-<h1 class="heaing-1 text-center">Edit Recipe</h1>
+<div class="recipe-form mt-5 p-3 mb-5">
+  <h1 class="heaing-1 text-center mb-5">Edit Recipe</h1>
 
-<form method="post" enctype="multipart/form-data">
+  <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   
   {{form.as_p}}
   <button class="btn btn-primary">Add Recipe</button>
-</form>
+  </form>
+</div>
 
 {% endblock content %}
