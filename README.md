@@ -34,6 +34,7 @@
       - [fitness_meals](#fitness-meals)
   - [Bugs](#bugs)
     - [Solved Bugs](#solved-bugs)
+    - [Known Bugs](#known-bugs)
   - [Manual Testing](#manual-testing)
 - [Deployment](#deployment)
   - [How To Clone](#how-to-clone)
@@ -463,6 +464,9 @@ Python was tested using [Pep8ci](https://pep8ci.herokuapp.com/), Code Institute 
 | When deploying the project to Heroku, I got an error when viewing the uploaded site. | Disallowed Host | In settings.py, I changed the value of ALLOWED_HOSTS to my right Heroku project URL. 
 | When liking a recipe, I got brought to the ERROR 405 page instead of being redirected to the recipe_detail page. | ERROR 405 | I made a mistake in the RecipeLike view. Although I named my variable post, the correct name was the recipe.  
 | When I wanted to create a draft recipe I was getting a 404 error. | ERROR 404 | The RecipeDetail view was only filtering through published recipes, not drafts. I added an extra filter for draft recipes.
+
+#### Known Bug 
+- Getting Server Error 500 when a URL path is not found. I belive the bug is coming from my settings.py file but I can’t figure out to fix this error. I created custom_404 view and added the handler404 in my recipes URL but that code did'nt work. Since I made The DUBUG False I Keep gettings this Error.
 
 ### Manual Testing
 
