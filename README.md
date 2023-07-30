@@ -5,6 +5,7 @@
   - [Project Description](#project-description)
   - [Project Goals](#project-goals)
   - [User Stories](#user-stories)
+  - [Agile Methodology](#agile-methodology)
   - [Design](#design)
     - [ERD Database](#erd-database)
     - [Wireframes](#wireframes)
@@ -34,7 +35,6 @@
   - [Bugs](#bugs)
     - [Solved Bugs](#solved-bugs)
   - [Manual Testing](#manual-testing)
-      - [Home Page](#home-page)
 - [Deployment](#deployment)
   - [How To Clone](#how-to-clone)
   - [How To Fork](#how-to-fork)
@@ -75,6 +75,9 @@ Fitness Meals is an application that lets users share healthy recipes. Registere
 - As a User, I can comment on members' recipes so that I ask questions about the recipe
 - As a User, I can like or unlike recipes so that I can support the other users
 - As a User, I can see my profile page so that I can see my recipes
+
+### Agile Methodology 
+My project was planned using the Agile Methodology, and you can find my project board [Here](https://github.com/users/EdwardShanahan07/projects/7/views/1). A Github Issue was opened for each feature. Each issue was given a label, an epic, a user story, acceptance criteria, and tasks. I discovered that planning and organising my project was made simpler by the Agile Methodology.
 
 ## Design
 
