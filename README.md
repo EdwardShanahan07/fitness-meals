@@ -46,6 +46,7 @@
   - [Code Used](#code-used)
   - [Content](#content)
   - [Media](#media)
+  - [Acknowledgments](#acknowledgments)
 
 ## UX
 
@@ -696,6 +697,7 @@ os.es.environ["CLOUDINARY_URL"] = "CLODINARY API KEY"
 
 - Project code is based on the Code Institue Walkthrough project, "I Think Therefor I Blog".
   [Walkthrough Project](https://github.com/Code-Institute-Solutions/Django3blog/tree/master/12_final_deployment)
+- I used Dee MC "Django Recipe Sharing Tutorial" YouTube tutorials to help me build the Edit, Delete, and profile views. [YouTube Playlist](https://www.youtube.com/watch?v=sBjbty691eI&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=1)
 
 ### Content
 
@@ -705,3 +707,8 @@ os.es.environ["CLOUDINARY_URL"] = "CLODINARY API KEY"
 ### Media
 
 - Images gathered from [Pexels](https://www.pexels.com/)
+
+### Acknowledgments 
+- I want to thank Code Institute for their exceptional course materials.
+- I would like to thank my mentor Jubril Akolade for his feedback.
+- I would like to thank my friends and family for testing out my application.
