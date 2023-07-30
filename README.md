@@ -33,6 +33,8 @@
       - [fitness_meals](#fitness-meals)
   - [Bugs](#bugs)
     - [Solved Bugs](#solved-bugs)
+  - [Manual Testing](#manual-testing)
+      - [Home Page](#home-page)
 - [Deployment](#deployment)
   - [How To Clone](#how-to-clone)
   - [How To Fork](#how-to-fork)
@@ -457,6 +459,161 @@ Python was tested using [Pep8ci](https://pep8ci.herokuapp.com/), Code Institute 
 | When deploying the project to Heroku, I got an error when viewing the uploaded site. | Disallowed Host | In settings.py, I changed the value of ALLOWED_HOSTS to my right Heroku project URL. 
 | When liking a recipe, I got brought to the ERROR 405 page instead of being redirected to the recipe_detail page. | ERROR 405 | I made a mistake in the RecipeLike view. Although I named my variable post, the correct name was the recipe.  
 | When I wanted to create a draft recipe I was getting a 404 error. | ERROR 404 | The RecipeDetail view was only filtering through published recipes, not drafts. I added an extra filter for draft recipes.
+
+### Manual Testing
+
+#### Home Page
+
+| Feature     | Action      | Expected Result |  Result
+| ------------- | ------------- | --------    | --------    |
+| Home Page    | Display       | Home page should display when the site is visited first | Pass
+| Navbar       | Display       | If the user isn’t login Home, Recipes, Login, and Register links will appear   | Pass
+| Navbar       | Click       | Click Home link should be brought to Home Page  | Pass
+| Navbar       | Click       | Click Recipes link should be brought to Recipes Page  | Pass
+| Navbar       | Click       | Click Login link should be brought to Login Page  | Pass
+| Navbar       | Click       | Click Login link should be brought to Register Page  | Pass
+| Navbar       | Display      | If the user is logged in Profile, Recipes, Logout, and Create Recipe will appear   | Pass
+| Navbar       | Click       | Click Profile link should be brought to Profile Page   | Pass
+| Navbar       | Click       | Click Recipes link should be brought to Recipes Page   | Pass
+| Navbar       | Click       | Click Logout link should be brought to the Logout Page   | Pass
+| Navbar       | Click       | Click Create Recipe link should be brought to the Create Recipe Page   | Pass
+| Hero Section      | Display       | The Hero Section appears correctly  | Pass
+| About Section      | Display       | The About Section appears correctly  | Pass
+| About Section      | Click       | Click the Register button should be brought to sign up page  | Pass
+| Recent Recipes      | Display       | Three recently created recipe should appear  | Pass
+| Footer     | Display       | The Footer appears correctly   | Pass
+
+#### Recipes Page 
+
+| Feature     | Action      | Expected Result |  Result
+| ------------- | ------------- | --------    | --------    |
+| Heading       | Display       | Recipe List heading should be visible   | Pass
+| Recipe Card      | Display       | Recipe card should be visible   | Pass
+| Recipe Card     | Display       | Recipe card image should be visible   | Pass
+| Recipe Card     | Display       | Recipe card like and recipe category  should be visible   | Pass
+| Recipe Card      | Display       | Recipe card title should be visible   | Pass
+| Recipe Card     | Display       | Recipe card author should be visible   | Pass
+| Recipe Card       | Display       | Recipe card View Recipe button should be visible   | Pass
+| Recipe Card       | Click       | Click the view recipe should be brought to the Recipe Detail Page   | Pass
+| Recipes       | Display       | Recipe cards should be in a responsive grid   | Pass
+
+
+#### Signup Page 
+
+| Feature     | Action      | Expected Result |  Result
+| ------------- | ------------- | --------    | --------    |
+| Heading    | Display       | Sign Up heading should be visible   | Pass
+| Login    | Click       | Click Login link should be brought to the login page    | Pass
+| Username    | Input       | Enter unique username     | Pass
+| Email (optional)     | Input       | Enter correctly formatted email address      | Pass
+| Password     | Input       | Enter password must be over eight characters      | Pass
+| Password (Again)     | Input       | Enter same password      | Pass
+| Sign Up     | Click       | Click the Sign-Up button user should be registered       | Pass
+| Success Message     | Click       | Success message should appear if the user registered correctly  | Pass
+
+#### Create Recipe
+
+| Feature     | Action      | Expected Result |  Result
+| ------------- | ------------- | --------    | --------    |
+| Heading    | Display       | Create Recipe heading should be visible   | Pass
+| Recipe Title    | Input       | User must enter a unique Recipe Title   | Pass
+| Recipe Description     | Input       | Enter recipe description    | Pass
+| Recipe Image     | Select       | Select image    | Pass
+| Recipe Category     | Select       | Choose between Breakfast, Lunch, Dinner, Snack option     | Pass
+| Preparation Time     | Input       | User must enter positive number    | Pass
+| Cook Time     | Input       | User must enter positive number    | Pass
+| Servings     | Input       | User must enter positive number    | Pass
+| Calories     | Input       | User must enter positive number    | Pass
+| Carbs     | Input       | User must enter positive number    | Pass
+| Protein     | Input       | User must enter positive number    | Pass
+| Fats     | Input       | User must enter positive number    | Pass
+| Ingredients     | Input       | Enter ingredients, each ingredient must be separated by the escape key   | Pass
+| Method     | Input       | Enter method, each method must be separated by the escape key   | Pass
+| Status     | Input       | Choose between Draft or Publish   | Pass
+| Create Recipe     | Click       | Click Create Recipe Button, the recipe should be created     | Pass
+| Recipe Detail     | Input       | The created recipe should be brought to the Recipe Detail Page    | Pass
+| Success Message     | Display       | Success message should appear if the recipe was created successfully  | Pass
+
+#### Edit Recipe
+
+| Feature     | Action      | Expected Result |  Result
+| ------------- | ------------- | --------    | --------    |
+| Heading    | Display       | Edit Recipe heading should be visible   | Pass
+| Recipe Title    | Input       | Recipe Title should be in the input  | Pass
+| Recipe Description     | Input       | Recipe Description should be in the input    | Pass
+| Recipe Image     | Select       | Select image    | Pass
+| Recipe Category     | Select       | Recipe category should be selected    | Pass
+| Preparation Time     | Input       | Recipe Preparation time should be in the input    | Pass
+| Cook Time     | Input       | Cook time should be in the input     | Pass
+| Servings     | Input       | Number of servings should be in the input     | Pass
+| Calories     | Input       | Calories should be in the input   | Pass
+| Carbs     | Input       | Carbs should be in the input     | Pass
+| Protein     | Input       | Protein should be in the input    | Pass
+| Fats     | Input       | Fats should be in the input     | Pass
+| Ingredients     | Input       | Ingredients should be in the input   | Pass
+| Method     | Input       | Method should be in the input   | Pass
+| Status     | Select       | Chosen status should be the value   | Pass
+| Edit Recipe     | Click       | Click Edit Recipe Button, the recipe should be edited     | Pass
+| Recipe Detail     | Input       | The created recipe should be brought to the Recipe Detail Page    | Pass
+| Success Message     | Display       | Success message should appear if the recipe was edited successfully  | Pass
+
+#### Delete Recipe
+
+| Feature     | Action      | Expected Result |  Result
+| ------------- | ------------- | --------    | --------    |
+| Heading    | Display       | Confirm Delete heading should be visible   | Pass
+| Text   | Input       | "Are you sure you want to delete the recipe" text should be visible   | Pass
+| Confirm Button    | Input       | If the user clicks the confirm button the recipe will be deleted and the user will be redirected to the Recipe List Page    | Pass
+| Message    | Display       | Success message should appear if the user deletes the recipe successfully      | Pass
+
+#### Recipe Detail
+
+| Feature     | Action      | Expected Result |  Result
+| ------------- | ------------- | --------    | --------    |
+| Author    | Display       | The author of the recipe should be visible    | Pass
+| Last Updated    | Display       | Last updated time should be visible  | Pass
+| Title    | Display       | Recipe title should be visible  | Pass
+| Description    | Display       | Recipe title should be visible  | Pass
+| Nutrition Facts    | Display       | Calories, Carbs, Protein, and Fats should be visible  | Pass
+| Button    | Display       | If the user owns the recipe, an Edit and Delete button should be visible  | Pass
+| Image    | Display       | Recipe image should be visible  | Pass
+| Extra Information    | Display      | Category, Preparation Time, Cook Time, and Servings should be visible  | Pass
+| Ingredients    | Display       | Ingredients list should be visible  | Pass
+| Method    | Display       | Method list should be visible  | Pass
+| Recipe Likes    | Display       | Number of likes the recipe has  | Pass
+| Recipe Like    | Click       | If the user is logged in the user can like or unlike the recipe  | Pass
+| Comment Count    | Display       | Number of left comments should be visible   | Pass
+| Comments    | Display      | See a list of comments users have created | Pass
+| Comment Form    | Input      | If the user is logged in they can create a comment | Pass
+| Message    | Display      | Waiting on a approval message appeared | Pass
+
+#### Profile Page
+
+| Feature     | Action      | Expected Result |  Result
+| ------------- | ------------- | --------    | --------    |
+| Title    | Display       | Username should be visible    | Pass
+| Published Recipes    | Display       | If the user published a recipe it should be visible    | Pass
+| Draft Recipes    | Display       | If the user drafted a recipe it should be visible    | Pass
+
+#### Sign Out Page
+
+| Feature     | Action      | Expected Result |  Result
+| ------------- | ------------- | --------    | --------    |
+| Heading    | Display       | Sign Out heading should be visible    | Pass
+| Text    | Display       | "Are you sure you want to sign out" text should be visible   | Pass
+| Sign Out Button    | Click       | If the user clicks the sign out the user should be signed out    | Pass
+| Message    | Display       | The user should get a success message if they sign out correctly    | Pass
+
+#### Sign In Page
+
+| Feature     | Action      | Expected Result |  Result
+| ------------- | ------------- | --------    | --------    |
+| Heading    | Display       | Sign In heading should be visible   | Pass
+| Username    | Input       | User must enter username   | Pass
+| Password    | Input       | User must enter their password    | Pass
+| Sign In Button    | Click       | When the user clicks the sign in button they should be brought to the Recipe List page    | Pass
+| Message    | Display       | Success message should appear if the user signs in successfully     | Pass
+
 
 ## Deployment
 
